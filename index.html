@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rencana Rahasia di Dunia yang Terlupakan</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #d0e8f2, #f8f9fa);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .game-container {
+      background: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      padding: 30px;
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      color: #0077cc;
+      margin-bottom: 20px;
+    }
+
+    #story-text p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .choices-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .choice-btn {
+      padding: 15px;
+      font-size: 1.1em;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .choice-btn:hover {
+      background-color: #005da3;
+    }
+
+    .ending {
+      font-weight: bold;
+      color: green;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1 id="story-title">Selamat datang di Dunia yang Terlupakan!</h1>
+    <div id="story-text">
+      <p>Kamu adalah seorang petualang muda yang terjebak di dunia misterius. Dunia ini penuh dengan rahasia dan teka-teki yang harus kamu pecahkan.</p>
+      <p>Pilih jalan yang akan kamu ambil untuk memulai petualanganmu:</p>
+    </div>
+    <div class="choices-container">
+      <button class="choice-btn" onclick="nextPart(1)">Masuk ke dalam gua</button>
+      <button class="choice-btn" onclick="nextPart(2)">Berjalan menuju hutan</button>
+    </div>
+  </div>
+
+  <script>
+    const storyTitle = document.getElementById('story-title');
+    const storyText = document.getElementById('story-text');
+    const choicesContainer = document.querySelector('.choices-container');
+
+    function nextPart(choice) {
+      switch (choice) {
+        case 1:
+          storyTitle.textContent = "Petualangan di Dalam Gua";
+          storyText.innerHTML = `<p>Kamu memasuki gua yang gelap. Tiba-tiba terdengar suara aneh dari dalam. Apa yang akan kamu lakukan?</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(3)">Ikuti suara tersebut</button>
+            <button class="choice-btn" onclick="nextPart(4)">Cari jalan keluar</button>
+          `;
+          break;
+        case 2:
+          storyTitle.textContent = "Keindahan Hutan";
+          storyText.innerHTML = `<p>Kamu berjalan melewati hutan lebat, dan melihat sebuah pohon besar di kejauhan. Apa yang akan kamu lakukan?</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(5)">Dekati pohon besar</button>
+            <button class="choice-btn" onclick="nextPart(6)">Melanjutkan perjalanan lebih dalam ke hutan</button>
+          `;
+          break;
+        case 3:
+          storyTitle.textContent = "Suara Misterius";
+          storyText.innerHTML = `<p>Kamu mengikuti suara tersebut dan menemukan sebuah pintu rahasia di dalam gua. Apa yang akan kamu lakukan?</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(7)">Masuk ke dalam pintu rahasia</button>
+            <button class="choice-btn" onclick="nextPart(8)">Kembali keluar dari gua</button>
+          `;
+          break;
+        case 4:
+          storyTitle.textContent = "Gua Mulai Runtuh!";
+          storyText.innerHTML = `<p>Kamu mencari jalan keluar, tapi gua mulai runtuh! Kamu harus bertindak cepat!</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(9)">Lari secepat mungkin</button>
+            <button class="choice-btn" onclick="nextPart(10)">Berlindung di balik batu</button>
+          `;
+          break;
+        case 5:
+          storyTitle.textContent = "Pohon Besar Ajaib";
+          storyText.innerHTML = `<p>Di dekat pohon, kamu menemukan peti tua dengan simbol kuno. Apa yang kamu lakukan?</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(11)">Buka peti tersebut</button>
+            <button class="choice-btn" onclick="nextPart(12)">Biarkan dan terus berjalan</button>
+          `;
+          break;
+        case 6:
+          storyTitle.textContent = "Dalamnya Hutan";
+          storyText.innerHTML = `<p>Kamu menemukan kabin tua di tengah hutan. Kelihatan tak berpenghuni, tapi pintunya terbuka sedikit.</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(13)">Masuk ke kabin</button>
+            <button class="choice-btn" onclick="nextPart(14)">Lanjut menjelajah hutan</button>
+          `;
+          break;
+        case 7:
+          storyTitle.textContent = "Ruang Rahasia";
+          storyText.innerHTML = `<p>Di balik pintu, kamu menemukan ruang berisi kristal bercahaya dan lukisan kuno. Tiba-tiba, suara berkata: "Pilih satu kristal."</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(15)">Pilih kristal biru</button>
+            <button class="choice-btn" onclick="nextPart(16)">Pilih kristal merah</button>
+          `;
+          break;
+        case 8:
+          storyTitle.textContent = "Kembali ke Pintu Masuk";
+          storyText.innerHTML = `<p>Kamu kembali ke pintu gua, namun pintunya kini tertutup! Tidak ada jalan kembali.</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(3)">Coba kembali ke suara tadi</button>
+          `;
+          break;
+        case 9:
+          storyTitle.textContent = "Keluar dengan Selamat!";
+          storyText.innerHTML = `<p>Kamu berhasil keluar dari gua tepat waktu! Di luar, kamu melihat cahaya terang di kejauhan...</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(17)">Ikuti cahaya itu</button>
+          `;
+          break;
+        case 10:
+          storyTitle.textContent = "Tertimpa Runtuhan";
+          storyText.innerHTML = `<p>Batu besar jatuh dan menutup jalan keluar. Sayangnya, kamu terperangkap selamanya...</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Buruk)</p>`;
+          break;
+        case 11:
+          storyTitle.textContent = "Harta Karun Ajaib";
+          storyText.innerHTML = `<p>Di dalam peti, kamu menemukan jimat kuno yang bisa menunjukkan jalan keluar dari dunia ini.</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(18)">Gunakan jimat untuk teleportasi</button>
+          `;
+          break;
+        case 12:
+          storyTitle.textContent = "Diserang Serigala!";
+          storyText.innerHTML = `<p>Karena melewati peti itu, kamu tidak tahu bahwa itu perangkap untuk mengusir serigala. Kamu diserang!</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Tragis)</p>`;
+          break;
+        case 13:
+          storyTitle.textContent = "Rahasia Kabin";
+          storyText.innerHTML = `<p>Di dalam kabin, kamu menemukan buku tua yang menceritakan tentang Dunia yang Terlupakan dan ramalan kuno...</p>`;
+          choicesContainer.innerHTML = `
+            <button class="choice-btn" onclick="nextPart(19)">Baca lebih lanjut</button>
+            <button class="choice-btn" onclick="nextPart(20)">Keluar dari kabin</button>
+          `;
+          break;
+        case 14:
+          storyTitle.textContent = "Tersesat";
+          storyText.innerHTML = `<p>Kamu tersesat di dalam hutan dan tidak pernah ditemukan lagi...</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Misterius)</p>`;
+          break;
+        case 15:
+          storyTitle.textContent = "Kristal Biru";
+          storyText.innerHTML = `<p>Kamu berubah menjadi burung dan bisa terbang keluar dari Dunia Terlupakan!</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Bebas)</p>`;
+          break;
+        case 16:
+          storyTitle.textContent = "Kristal Merah";
+          storyText.innerHTML = `<p>Kamu mendapatkan kekuatan untuk mengendalikan waktu! Dunia sekarang ada di tanganmu.</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Superpower)</p>`;
+          break;
+        case 17:
+          storyTitle.textContent = "Kembali ke Dunia Nyata";
+          storyText.innerHTML = `<p>Cahaya itu adalah portal menuju dunia nyata. Kamu akhirnya kembali dan menjadi legenda di dunia manusia.</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Bahagia)</p>`;
+          break;
+        case 18:
+          storyTitle.textContent = "Teleportasi Berhasil";
+          storyText.innerHTML = `<p>Dengan cahaya dari jimat, kamu muncul di tempat tidurmu. Semua terasa seperti mimpi... atau nyata?</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Ajaib)</p>`;
+          break;
+        case 19:
+          storyTitle.textContent = "Waktumu Tiba";
+          storyText.innerHTML = `<p>Buku itu mengatakan bahwa hanya satu yang bisa menyelamatkan dunia ini — kamu. Dan waktunya telah tiba.</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Pahlawan)</p>`;
+          break;
+        case 20:
+          storyTitle.textContent = "Dunia Menghilang";
+          storyText.innerHTML = `<p>Saat kamu keluar dari kabin, semuanya mulai lenyap. Dunia Terlupakan tidak ingin kamu pergi...</p>`;
+          choicesContainer.innerHTML = `<p class="ending">Tamat (Akhir Lenap)</p>`;
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
